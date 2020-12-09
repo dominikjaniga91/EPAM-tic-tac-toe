@@ -3,11 +3,9 @@ package tictactoe;
 class GameBoard {
 
     private char[][] gameBoard = {
-            {' ', '|', ' ', '|', ' '},
-            {'-', '+', '-', '+', '-'},
-            {' ', '|', ' ', '|', ' '},
-            {'-', '+', '-', '+', '-'},
-            {' ', '|', ' ', '|', ' '} };
+            {' ', ' ', ' '},
+            {' ', ' ', ' '},
+            {' ', ' ', ' '} };
 
     void print() {
         for (char[] row : gameBoard) {
