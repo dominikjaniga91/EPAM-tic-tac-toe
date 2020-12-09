@@ -17,4 +17,8 @@ class GameBoard {
             System.out.println();
         }
     }
+
+    char[][] getGameBoard() {
+        return gameBoard;
+    }
 }
