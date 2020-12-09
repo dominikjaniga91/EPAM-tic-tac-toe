@@ -17,11 +17,9 @@ public class GameBoardTest {
     public void shouldReturnEmptyGameBoard_afterPrint() {
 
         char[][] actual = {
-                {' ', '|', ' ', '|', ' '},
-                {'-', '+', '-', '+', '-'},
-                {' ', '|', ' ', '|', ' '},
-                {'-', '+', '-', '+', '-'},
-                {' ', '|', ' ', '|', ' '} };
+                {' ', ' ', ' '},
+                {' ', ' ', ' '},
+                {' ', ' ', ' '} };
 
         char[][] expected = gameBoard.getGameBoard();
 
