@@ -2,9 +2,10 @@ package tictactoe;
 
 public class Parser {
 
-    int parse(String input) {
-        if(input.matches("[0-9]")) {
-            return Integer.parseInt(input);
+    int parse(char input) {
+        var position = String.valueOf(input);
+        if(position.matches("[0-9]")) {
+            return Integer.parseInt(position);
         }
         throw new IllegalArgumentException("Invalid input");
     }
