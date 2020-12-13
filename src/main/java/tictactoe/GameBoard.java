@@ -21,7 +21,7 @@ class GameBoard {
         return gameBoard;
     }
 
-    boolean setValue(int position1, int position2, Field value) {
+    boolean setValue(int position1, int position2, FieldValue value) {
 
         if (isOutOfRange(position1) && isOutOfRange(position2)) {
             throw new IllegalArgumentException();
