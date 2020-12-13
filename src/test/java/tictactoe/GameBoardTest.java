@@ -31,13 +31,13 @@ public class GameBoardTest {
 
         int position1 = 0;
         int position2 = 0;
-        boolean actual = gameBoard.setValue(position1, position2, Field.X);
+        boolean actual = gameBoard.setValue(position1, position2, FieldValue.X);
         Assert.assertTrue(actual);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void shouldThrowAnException_afterSetValueOutOfBoard() {
-           gameBoard.setValue(4, 4, Field.X);
+           gameBoard.setValue(4, 4, FieldValue.X);
     }
 
 
