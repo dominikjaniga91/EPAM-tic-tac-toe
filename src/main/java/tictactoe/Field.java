@@ -1,16 +1,28 @@
 package tictactoe;
 
-enum Field {
+import java.util.Objects;
 
-    X('X'), O('O');
+public class Field {
 
-    private final char value;
+    private final int firstPosition;
+    private final int secondPosition;
 
-    Field(char value) {
-        this.value = value;
+    public Field(int firstPosition, int secondPosition) {
+        this.firstPosition = firstPosition;
+        this.secondPosition = secondPosition;
     }
 
-    public char getValue() {
-        return value;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Field field = (Field) o;
+        return firstPosition == field.firstPosition &&
+                secondPosition == field.secondPosition;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstPosition, secondPosition);
     }
 }
