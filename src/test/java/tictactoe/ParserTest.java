@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class ParserTest {
 
-    Parser parser;
+    private Parser parser;
 
     @BeforeMethod
     public void setUp() {
@@ -20,4 +20,10 @@ public class ParserTest {
         Assert.assertEquals(actual, expected);
     }
 
+
+    @Test(expectedExceptions = IllegalArgumentException.class,
+          expectedExceptionsMessageRegExp = "Invalid input")
+    public void shouldThrowAnException_afterParseInvalidInput() {
+        parser.parse('D');
+    }
 }
