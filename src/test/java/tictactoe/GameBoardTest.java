@@ -35,5 +35,10 @@ public class GameBoardTest {
         Assert.assertTrue(actual);
     }
 
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void shouldThrowAnException_afterSetValueOutOfBoard() {
+           gameBoard.setValue(4, 4, Field.X);
+    }
+
 
 }
