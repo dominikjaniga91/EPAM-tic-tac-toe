@@ -25,4 +25,15 @@ public class GameBoardTest {
 
         Assert.assertEquals(actual, expected);
     }
+
+    @Test
+    public void shouldReturnTrue_whenSetAppropriatePositionOnGameBoard() {
+
+        int position1 = 0;
+        int position2 = 0;
+        boolean actual = gameBoard.setValue(position1, position2, Field.X);
+        Assert.assertTrue(actual);
+    }
+
+
 }

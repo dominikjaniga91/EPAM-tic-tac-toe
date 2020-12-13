@@ -26,7 +26,7 @@ class GameBoard {
         if (isOutOfRange(position1) && isOutOfRange(position2)) {
             throw new IllegalArgumentException();
         }
-        if (gameBoard[position1][position2] != ' ') {
+        if (gameBoard[position1][position2] == ' ') {
             gameBoard[position1][position2] = value.getValue();
             return true;
         }
