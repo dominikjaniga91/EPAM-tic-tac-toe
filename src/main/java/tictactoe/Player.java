@@ -18,7 +18,7 @@ public class Player {
         }
         int firstPosition = parser.parse(input.charAt(0));
         int secondPosition = parser.parse(input.charAt(1));
-        return new Field(firstPosition, secondPosition);
+        return new Field(firstPosition, secondPosition, fieldValue);
     }
 
     void selectTheGameMark() {

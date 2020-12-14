@@ -6,10 +6,12 @@ public class Field {
 
     private final int firstPosition;
     private final int secondPosition;
+    private final FieldValue fieldValue;
 
-    public Field(int firstPosition, int secondPosition) {
+    public Field(int firstPosition, int secondPosition, FieldValue fieldValue) {
         this.firstPosition = firstPosition;
         this.secondPosition = secondPosition;
+        this.fieldValue = fieldValue;
     }
 
     @Override
