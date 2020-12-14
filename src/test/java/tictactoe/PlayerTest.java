@@ -35,4 +35,10 @@ public class PlayerTest {
         Field expected = new Field(0, 1, FieldValue.EMPTY);
         Assert.assertEquals(actual, expected);
     }
+
+    @Test(expectedExceptions = InvalidInputException.class,
+            expectedExceptionsMessageRegExp = "Provided input is too long - only two digits")
+    public void shouldThrowAnException_afterProvideTooLongInput() throws InvalidInputException {
+        player.makeAMove("011");
+    }
 }
