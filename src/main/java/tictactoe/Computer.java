@@ -14,8 +14,8 @@ public class Computer {
     }
 
     Field makeAMove() {
-        int firstPosition = random.nextInt(4);
-        int secondPosition = random.nextInt(4);
+        int firstPosition = random.nextInt(3);
+        int secondPosition = random.nextInt(3);
         return new Field(firstPosition, secondPosition, fieldValue);
     }
 }
