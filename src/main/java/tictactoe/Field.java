@@ -18,6 +18,10 @@ public class Field {
         return fieldValue == FieldValue.EMPTY;
     }
 
+    public void setFieldValue(Field field) {
+        this.fieldValue = field.fieldValue;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,5 +34,10 @@ public class Field {
     @Override
     public int hashCode() {
         return Objects.hash(firstPosition, secondPosition);
+    }
+
+    @Override
+    public String toString() {
+        return fieldValue.toString();
     }
 }
