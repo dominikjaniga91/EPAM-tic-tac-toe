@@ -28,4 +28,11 @@ public class PlayerTest {
     public void shouldThrowAnException_afterProvideInvalidMark() throws InvalidInputException {
         player.selectTheGameMark("D");
     }
+
+    @Test
+    public void shouldReturnField_afterPlayerProvideValidInput() throws InvalidInputException {
+        Field actual = player.makeAMove("01");
+        Field expected = new Field(0, 1, FieldValue.EMPTY);
+        Assert.assertEquals(actual, expected);
+    }
 }
