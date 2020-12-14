@@ -2,7 +2,7 @@ package tictactoe;
 
 enum FieldValue {
 
-    X('X'), O('O');
+    X('X'), O('O'), EMPTY(' ');
 
     private final char value;
 
