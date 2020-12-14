@@ -18,10 +18,11 @@ public class Player {
         return new Field(firstPosition, secondPosition, fieldValue);
     }
 
-    void selectTheGameMark(String mark) {
+    FieldValue selectTheGameMark(String mark) {
         boolean validGameMark = mark.equals("X") || mark.equals("O");
         if (validGameMark) {
             this.fieldValue = FieldValue.valueOf(mark);
+            return this.fieldValue;
         }
         throw new IllegalArgumentException("Invalid game mark " + mark);
     }
