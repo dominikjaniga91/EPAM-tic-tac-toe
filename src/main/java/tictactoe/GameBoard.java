@@ -1,39 +1,28 @@
 package tictactoe;
 
+import java.util.List;
+
 class GameBoard {
 
-    private char[][] gameBoard = {
-            {' ', ' ', ' '},
-            {' ', ' ', ' '},
-            {' ', ' ', ' '} };
+    private List<Field> gameBoard = List.of( new Field(0, 0, FieldValue.EMPTY), new Field(0, 1, FieldValue.EMPTY), new Field(0, 2, FieldValue.EMPTY),
+                                            new Field(1, 0, FieldValue.EMPTY), new Field(1, 1, FieldValue.EMPTY), new Field(1, 2, FieldValue.EMPTY),
+                                            new Field(2, 0, FieldValue.EMPTY), new Field(2, 1, FieldValue.EMPTY), new Field(2, 2, FieldValue.EMPTY));
 
-    void print() {
 
-        for (char[] row : gameBoard) {
-            for(char c : row) {
-                System.out.print("[" + c + "]");
-            }
-            System.out.println();
-        }
-    }
+    boolean setValue(Field userField) {
 
-    char[][] getGameBoard() {
-        return gameBoard;
-    }
+        Field gameBoardField = findField(userField);
 
-    boolean setValue(int position1, int position2, FieldValue value) {
-
-        if (isOutOfRange(position1) && isOutOfRange(position2)) {
-            throw new IllegalArgumentException();
-        }
-        if (gameBoard[position1][position2] == ' ') {
-            gameBoard[position1][position2] = value.getValue();
+        if (gameBoardField.isEmpty()) {
+           gameBoardField = userField;
             return true;
         }
         return false;
     }
 
-    private boolean isOutOfRange(int position) {
-        return position < 0 || position > 2;
+    Field findField(Field field) {
+        return gameBoard.stream()
+                .filter(f -> f.equals(field))
+                .findFirst().orElseThrow(IllegalArgumentException::new);
     }
 }

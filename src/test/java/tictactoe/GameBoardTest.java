@@ -13,31 +13,17 @@ public class GameBoardTest {
         gameBoard = new GameBoard();
     }
 
-    @Test
-    public void shouldReturnEmptyGameBoard_afterPrint() {
-
-        char[][] actual = {
-                {' ', ' ', ' '},
-                {' ', ' ', ' '},
-                {' ', ' ', ' '} };
-
-        char[][] expected = gameBoard.getGameBoard();
-
-        Assert.assertEquals(actual, expected);
-    }
 
     @Test
     public void shouldReturnTrue_whenSetAppropriatePositionOnGameBoard() {
-
-        int position1 = 0;
-        int position2 = 0;
-        boolean actual = gameBoard.setValue(position1, position2, FieldValue.X);
+        Field field = new Field(0 ,0, FieldValue.X);
+        boolean actual = gameBoard.setValue(field);
         Assert.assertTrue(actual);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void shouldThrowAnException_afterSetValueOutOfBoard() {
-           gameBoard.setValue(4, 4, FieldValue.X);
+           gameBoard.setValue(new Field(4 ,4, FieldValue.X));
     }
 
 
