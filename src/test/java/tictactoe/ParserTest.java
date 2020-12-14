@@ -14,16 +14,16 @@ public class ParserTest {
     }
 
     @Test
-    public void shouldReturnIntegerValue_afterParseValidInput() {
+    public void shouldReturnIntegerValue_afterParseValidInput() throws InvalidInputException {
         int expected = 3;
         int actual = parser.parse('3');
         Assert.assertEquals(actual, expected);
     }
 
 
-    @Test(expectedExceptions = IllegalArgumentException.class,
-          expectedExceptionsMessageRegExp = "Invalid input")
-    public void shouldThrowAnException_afterParseInvalidInput() {
+    @Test(expectedExceptions = InvalidInputException.class,
+          expectedExceptionsMessageRegExp = "Input should be a number")
+    public void shouldThrowAnException_afterParseInvalidInput() throws InvalidInputException {
         parser.parse('D');
     }
 }
