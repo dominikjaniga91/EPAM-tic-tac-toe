@@ -4,6 +4,7 @@ public class Player {
 
     private final Reader reader;
     private final Parser parser;
+    private FieldValue fieldValue;
 
     public Player(Reader reader, Parser parser) {
         this.reader = reader;
@@ -20,11 +21,11 @@ public class Player {
         return new Field(firstPosition, secondPosition);
     }
 
-    FieldValue selectTheGameMark() {
+    void selectTheGameMark() {
         String mark = reader.readUserInput();
         boolean validGameMark = mark.equals("X") || mark.equals("O");
         if (validGameMark) {
-            return FieldValue.valueOf(mark);
+            this.fieldValue = FieldValue.valueOf(mark);
         }
         throw new IllegalArgumentException("Invalid game mark " + mark);
     }
