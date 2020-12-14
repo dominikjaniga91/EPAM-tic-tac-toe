@@ -19,4 +19,13 @@ public class Player {
         int secondPosition = parser.parse(input.charAt(1));
         return new Field(firstPosition, secondPosition);
     }
+
+    FieldValue selectTheGameMark() {
+        String mark = reader.readUserInput();
+        boolean validGameMark = mark.equals("X") || mark.equals("O");
+        if (validGameMark) {
+            return FieldValue.valueOf(mark);
+        }
+        throw new IllegalArgumentException("Invalid game mark " + mark);
+    }
 }
