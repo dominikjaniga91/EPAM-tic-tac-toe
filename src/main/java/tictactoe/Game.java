@@ -12,7 +12,7 @@ class Game {
     private final Computer computer = new Computer();
     private int counter = 0;
 
-    void play() {
+    void play() throws InvalidInputException {
         gameBoard.setUpGameBoard();
         System.out.println(" Choose game mark (X or O)");
         String mark = reader.readUserInput();
