@@ -4,10 +4,9 @@ public class Computer {
 
     private FieldValue fieldValue;
 
+    void selectTheGameMark(FieldValue playerMark) {
 
-    void selectTheGameMark(String playerMark) {
-
-        this.fieldValue = "X".equals(playerMark) ? FieldValue.O
-                                                 : FieldValue.X;
+        this.fieldValue = FieldValue.X.equals(playerMark) ? FieldValue.O
+                                                          : FieldValue.X;
     }
 }
