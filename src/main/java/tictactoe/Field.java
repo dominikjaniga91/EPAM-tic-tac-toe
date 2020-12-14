@@ -6,12 +6,16 @@ public class Field {
 
     private final int firstPosition;
     private final int secondPosition;
-    private final FieldValue fieldValue;
+    private FieldValue fieldValue;
 
     public Field(int firstPosition, int secondPosition, FieldValue fieldValue) {
         this.firstPosition = firstPosition;
         this.secondPosition = secondPosition;
         this.fieldValue = fieldValue;
+    }
+
+    boolean isEmpty() {
+        return fieldValue == FieldValue.EMPTY;
     }
 
     @Override
