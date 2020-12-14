@@ -2,17 +2,14 @@ package tictactoe;
 
 public class Player {
 
-    private final Reader reader;
     private final Parser parser;
     private FieldValue fieldValue;
 
-    public Player(Reader reader, Parser parser) {
-        this.reader = reader;
+    public Player(Parser parser) {
         this.parser = parser;
     }
 
-    Field makeAMove() {
-        String input = reader.readUserInput();
+    Field makeAMove(String input) {
         if (input.length() > 2) {
             throw new IllegalArgumentException("Too long input value");
         }
@@ -21,8 +18,7 @@ public class Player {
         return new Field(firstPosition, secondPosition, fieldValue);
     }
 
-    void selectTheGameMark() {
-        String mark = reader.readUserInput();
+    void selectTheGameMark(String mark) {
         boolean validGameMark = mark.equals("X") || mark.equals("O");
         if (validGameMark) {
             this.fieldValue = FieldValue.valueOf(mark);
