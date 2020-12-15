@@ -1,6 +1,6 @@
 package tictactoe;
 
-import static tictactoe.ExceptionMessage.*;
+import static tictactoe.messages.ExceptionMessage.*;
 public class Parser {
 
     static int parseNumber(char input) throws InvalidInputException {

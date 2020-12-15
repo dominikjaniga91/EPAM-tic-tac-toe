@@ -1,6 +1,6 @@
-package tictactoe;
+package tictactoe.messages;
 
-enum ExceptionMessage {
+public enum ExceptionMessage {
 
     NOT_A_NUMBER("Input should be a number"),
     TOO_LONG_INPUT("Provided input is too long - only two digits"),

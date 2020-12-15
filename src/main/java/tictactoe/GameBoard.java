@@ -1,6 +1,8 @@
 package tictactoe;
 
 
+import tictactoe.messages.ExceptionMessage;
+
 class GameBoard {
 
     private final Field[][] gameBoard;
