@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class Field {
 
-    private final int firstPosition;
-    private final int secondPosition;
+    private final int row;
+    private final int column;
     private FieldValue fieldValue;
 
-    public Field(int firstPosition, int secondPosition, FieldValue fieldValue) {
-        this.firstPosition = firstPosition;
-        this.secondPosition = secondPosition;
+    public Field(int row, int column, FieldValue fieldValue) {
+        this.row = row;
+        this.column = column;
         this.fieldValue = fieldValue;
     }
 
@@ -22,12 +22,12 @@ public class Field {
         this.fieldValue = field.fieldValue;
     }
 
-    public int getFirstPosition() {
-        return firstPosition;
+    public int getRow() {
+        return row;
     }
 
-    public int getSecondPosition() {
-        return secondPosition;
+    public int getColumn() {
+        return column;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Field {
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstPosition, secondPosition);
+        return Objects.hash(row, column);
     }
 
     @Override

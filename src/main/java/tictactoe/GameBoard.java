@@ -31,14 +31,14 @@ class GameBoard {
     }
 
     boolean setValue(Field field) throws OutOfRangeException {
-        int first = field.getFirstPosition();
-        int second = field.getSecondPosition();
-        boolean isOutOfRange = first < 0 || first > size - 1 || second < 0 || second > size - 1;
+        int row = field.getRow();
+        int column = field.getColumn();
+        boolean isOutOfRange = row < 0 || row > size - 1 || column < 0 || column > size - 1;
 
         if (isOutOfRange) {
             throw new OutOfRangeException(ExceptionMessage.OUT_OF_RANGE);
         }
-        Field gameBoardField = gameBoard[first][second];
+        Field gameBoardField = gameBoard[row][column];
 
         if (gameBoardField.isEmpty()) {
             gameBoardField.setFieldValue(field);

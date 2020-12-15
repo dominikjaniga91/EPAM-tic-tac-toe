@@ -15,9 +15,9 @@ public class Player {
         if (input.length() > 2) {
             throw new InvalidInputException(TOO_LONG_INPUT);
         }
-        int firstPosition = parser.parse(input.charAt(0));
-        int secondPosition = parser.parse(input.charAt(1));
-        return new Field(firstPosition, secondPosition, fieldValue);
+        int row = parser.parse(input.charAt(0));
+        int column = parser.parse(input.charAt(1));
+        return new Field(row, column, fieldValue);
     }
 
     FieldValue selectTheGameMark(String mark) throws InvalidInputException {
