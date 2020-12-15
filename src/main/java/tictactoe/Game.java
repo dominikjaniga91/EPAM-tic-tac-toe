@@ -7,13 +7,13 @@ class Game {
 
     private final Scanner scanner = new Scanner(System.in);
     private final Parser parser = new Parser();
-    private final GameBoard gameBoard = new GameBoard();
+    private final GameBoard gameBoard = new GameBoard(3);
     private final Reader reader = new Reader(scanner);
     private final Player player = new Player(parser);
     private final Computer computer = new Computer();
     private int counter = 0;
 
-    void play() {
+    void play() throws OutOfRangeException {
 
         gameBoard.setUpGameBoard();
         FieldValue playerValue = getPlayerSelection();

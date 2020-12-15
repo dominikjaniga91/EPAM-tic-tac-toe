@@ -1,50 +1,49 @@
 package tictactoe;
 
-import java.util.ArrayList;
-import java.util.List;
 
 class GameBoard {
 
-    private List<Field> gameBoard = new ArrayList<>();
+    private final Field[][] gameBoard;
+    private final int size;
+
+    public GameBoard(int size) {
+        this.size = size;
+        gameBoard = new Field[size][size];
+    }
 
     void setUpGameBoard() {
 
-        gameBoard.add(new Field(0, 0, FieldValue.EMPTY));
-        gameBoard.add(new Field(0, 1, FieldValue.EMPTY));
-        gameBoard.add(new Field(0, 2, FieldValue.EMPTY));
-        gameBoard.add(new Field(1, 0, FieldValue.EMPTY));
-        gameBoard.add(new Field(1, 1, FieldValue.EMPTY));
-        gameBoard.add(new Field(1, 2, FieldValue.EMPTY));
-        gameBoard.add(new Field(2, 0, FieldValue.EMPTY));
-        gameBoard.add(new Field(2, 1, FieldValue.EMPTY));
-        gameBoard.add(new Field(2, 2, FieldValue.EMPTY));
-    }
-
-    void printGameBoard() {
-
-        for (int i = 0; i < gameBoard.size(); i++) {
-
-            System.out.printf("[%s]", gameBoard.get(i));
-            if ((i + 1) % 3 == 0) {
-                System.out.println();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                gameBoard[i][j] = new Field(i, j, FieldValue.EMPTY);
             }
         }
     }
 
-    boolean setValue(Field userField) {
+    void printGameBoard() {
 
-        Field gameBoardField = findField(userField);
+        for (Field[] fields : gameBoard) {
+            for (Field field : fields) {
+                System.out.printf("[%s]", field);
+            }
+            System.out.println();
+        }
+    }
+
+    boolean setValue(Field field) throws OutOfRangeException {
+        int first = field.getFirstPosition();
+        int second = field.getSecondPosition();
+        boolean isOutOfRange = first < 0 || first > size - 1 || second < 0 || second > size - 1;
+
+        if (isOutOfRange) {
+            throw new OutOfRangeException(ExceptionMessage.OUT_OF_RANGE);
+        }
+        Field gameBoardField = gameBoard[first][second];
 
         if (gameBoardField.isEmpty()) {
-            gameBoardField.setFieldValue(userField);
+            gameBoardField.setFieldValue(field);
             return true;
         }
         return false;
-    }
-
-    Field findField(Field field) {
-        return gameBoard.stream()
-                .filter(f -> f.equals(field))
-                .findFirst().orElseThrow(IllegalArgumentException::new);
     }
 }
