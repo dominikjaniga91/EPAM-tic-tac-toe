@@ -22,6 +22,13 @@ public class GameBoardTest {
         Assert.assertTrue(actual);
     }
 
+    @Test
+    public void shouldReturnFalse_whenFieldOnBoardIsNotEmpty() throws OutOfRangeException {
+        gameBoard.setValue(new Field(0 ,0, X));
+        boolean actual = gameBoard.setValue(new Field(0 ,0, X));
+        Assert.assertFalse(actual);
+    }
+
     @Test(expectedExceptions = OutOfRangeException.class,
     expectedExceptionsMessageRegExp = "Provided position is out of board game's range")
     public void shouldThrowAnException_afterSetValueOutOfBoard() throws OutOfRangeException {
