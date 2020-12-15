@@ -19,4 +19,14 @@ class Arbiter {
         return true;
     }
 
+    protected boolean checkColumn(Field userField, Field[][] fields) {
+
+        int column = userField.getColumn();
+        for (Field[] field : fields) {
+            if(!userField.equals(field[column])) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
