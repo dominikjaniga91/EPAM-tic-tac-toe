@@ -22,6 +22,14 @@ public class Field {
         this.fieldValue = field.fieldValue;
     }
 
+    public int getFirstPosition() {
+        return firstPosition;
+    }
+
+    public int getSecondPosition() {
+        return secondPosition;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
