@@ -19,7 +19,6 @@ public class Game {
 
     public void play() {
         print(GREETING);
-        gameBoard.setUpGameBoard();
         setUpPlayers();
 
         do {

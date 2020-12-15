@@ -11,20 +11,21 @@ class GameBoard {
 
     GameBoard(int size) {
         this.size = size;
-        gameBoard = new Field[size][size];
+        gameBoard = setUpGameBoard();
     }
 
     Field[][] getGameBoard() {
         return gameBoard.clone();
     }
 
-    void setUpGameBoard() {
-
+    private Field[][] setUpGameBoard() {
+        Field[][] gameBoard = new Field[size][size];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 gameBoard[i][j] = new Field(i, j, FieldValue.EMPTY);
             }
         }
+        return gameBoard;
     }
 
     void printGameBoard() {

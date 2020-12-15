@@ -13,7 +13,6 @@ public class ArbiterTest {
     @BeforeMethod
     public void setUp() {
         gameBoard = new GameBoard(3);
-        gameBoard.setUpGameBoard();
         arbiter = new Arbiter(gameBoard);
     }
 

@@ -12,7 +12,6 @@ public class GameBoardTest {
     @BeforeMethod
     public void setUp() {
         gameBoard = new GameBoard(3);
-        gameBoard.setUpGameBoard();
     }
 
 
