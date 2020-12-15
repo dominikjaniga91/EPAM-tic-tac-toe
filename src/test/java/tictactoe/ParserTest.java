@@ -1,22 +1,15 @@
 package tictactoe;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ParserTest {
 
-    private Parser parser;
-
-    @BeforeMethod
-    public void setUp() {
-        parser = new Parser();
-    }
 
     @Test
     public void shouldReturnIntegerValue_afterParseValidInput() throws InvalidInputException {
         int expected = 3;
-        int actual = parser.parse('3');
+        int actual = Parser.parseNumber('3');
         Assert.assertEquals(actual, expected);
     }
 
@@ -24,6 +17,6 @@ public class ParserTest {
     @Test(expectedExceptions = InvalidInputException.class,
           expectedExceptionsMessageRegExp = "Input should be a number")
     public void shouldThrowAnException_afterParseInvalidInput() throws InvalidInputException {
-        parser.parse('D');
+        Parser.parseNumber('D');
     }
 }

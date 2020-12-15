@@ -4,19 +4,14 @@ import static tictactoe.ExceptionMessage.*;
 
 public class HumanPlayer {
 
-    private final Parser parser;
     private FieldValue fieldValue;
-
-    public HumanPlayer(Parser parser) {
-        this.parser = parser;
-    }
 
     Field makeAMove(String input) throws InvalidInputException {
         if (input.length() > 2) {
             throw new InvalidInputException(TOO_LONG_INPUT);
         }
-        int row = parser.parse(input.charAt(0));
-        int column = parser.parse(input.charAt(1));
+        int row = Parser.parseNumber(input.charAt(0));
+        int column = Parser.parseNumber(input.charAt(1));
         return new Field(row, column, fieldValue);
     }
 

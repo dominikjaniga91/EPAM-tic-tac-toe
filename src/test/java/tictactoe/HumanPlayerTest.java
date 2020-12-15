@@ -10,8 +10,7 @@ public class HumanPlayerTest {
 
     @BeforeMethod
     public void setUp() {
-        Parser parser = new Parser();
-        humanPlayer = new HumanPlayer(parser);
+        humanPlayer = new HumanPlayer();
     }
 
 

@@ -6,10 +6,9 @@ import static tictactoe.Console.print;
 class Game {
 
     private final Scanner scanner = new Scanner(System.in);
-    private final Parser parser = new Parser();
     private final GameBoard gameBoard = new GameBoard(3);
     private final Reader reader = new Reader(scanner);
-    private final HumanPlayer humanPlayer = new HumanPlayer(parser);
+    private final HumanPlayer humanPlayer = new HumanPlayer();
     private final Computer computer = new Computer();
     private final Arbiter arbiter = new Arbiter(gameBoard);
     private int counter = 0;
