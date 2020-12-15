@@ -8,7 +8,7 @@ class Arbiter {
         this.gameBoard = gameBoard;
     }
 
-    public boolean didPlayerWon(Field field) {
+    public boolean judge(Field field) {
         var board = gameBoard.getGameBoard();
         return checkRow(field, board) ||
                 checkColumn(field, board) ||
