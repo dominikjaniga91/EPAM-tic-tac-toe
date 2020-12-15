@@ -1,5 +1,7 @@
 package tictactoe;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import static tictactoe.Console.print;
 
@@ -8,29 +10,33 @@ class Game {
     private final Scanner scanner = new Scanner(System.in);
     private final GameBoard gameBoard = new GameBoard(3);
     private final Reader reader = new Reader(scanner);
-    private final HumanPlayer humanPlayer = new HumanPlayer();
-    private final Computer computer = new Computer();
+    private final List<HumanPlayer> players = new ArrayList<>();
     private final Arbiter arbiter = new Arbiter(gameBoard);
-    private int counter = 0;
+    private boolean endsGame = false;
+
 
     void play() throws OutOfRangeException {
-
+        print("Here's the Tic Tac Toe game, enjoy!");
         gameBoard.setUpGameBoard();
-        FieldValue playerValue = getPlayerSelection();
-        computer.selectTheGameMark(playerValue);
-        gameBoard.printGameBoard();
 
-        while (counter < 9) {
-            Field userField = getPlayerMove();
-            gameBoard.setValue(userField);
-            Field computerField = computer.makeAMove();
-            gameBoard.setValue(computerField);
-            gameBoard.printGameBoard();
-            counter++;
-        }
+        setUpPlayers();
+        do {
+            for (HumanPlayer player : players) {
+                gameBoard.printGameBoard();
+                Field field = getPlayerMove(player);
+                gameBoard.setValue(field);
+                endsGame = arbiter.judge(field);
+            }
+        } while (!endsGame);
+
     }
 
-    private Field getPlayerMove() {
+    void setUpPlayers() {
+        players.add(new HumanPlayer(FieldValue.X));
+        players.add(new HumanPlayer(FieldValue.O));
+    }
+
+    private Field getPlayerMove(HumanPlayer humanPlayer) {
 
         print("Make a move - chose position (format: 00)");
         Field field = null;
@@ -43,19 +49,5 @@ class Game {
             }
         }
         return field;
-    }
-
-    private FieldValue getPlayerSelection() {
-        print(" Choose game mark (X or O)");
-        FieldValue playerValue = null;
-        while (playerValue == null) {
-            try {
-                String mark = reader.readUserInput();
-                playerValue = humanPlayer.selectTheGameMark(mark);
-            } catch (InvalidInputException ex) {
-                print(ex.getMessage());
-            }
-        }
-        return playerValue;
     }
 }
