@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import static tictactoe.Console.print;
+import static tictactoe.Console.printError;
 
 class Game {
 
@@ -46,7 +47,7 @@ class Game {
                 field = humanPlayer.makeAMove(userInput);
                 isSet = gameBoard.setValue(field);
             } catch (InvalidInputException | OutOfRangeException ex) {
-                print(ex.getMessage());
+                printError(ex.getMessage());
             }
         }
         return field;
