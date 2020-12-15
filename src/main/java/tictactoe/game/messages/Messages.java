@@ -1,4 +1,4 @@
-package tictactoe.messages;
+package tictactoe.game.messages;
 
 public enum Messages {
 

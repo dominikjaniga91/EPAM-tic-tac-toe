@@ -1,4 +1,4 @@
-package tictactoe;
+package tictactoe.game;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

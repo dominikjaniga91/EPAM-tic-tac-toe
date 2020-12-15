@@ -1,12 +1,12 @@
-package tictactoe;
+package tictactoe.game;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import static tictactoe.Console.print;
-import static tictactoe.Console.printError;
+import static tictactoe.game.Console.print;
+import static tictactoe.game.Console.printError;
 
-class Game {
+public class Game {
 
     private final Scanner scanner = new Scanner(System.in);
     private final GameBoard gameBoard = new GameBoard(3);
@@ -16,7 +16,7 @@ class Game {
     private boolean endsGame = false;
 
 
-    void play() {
+    public void play() {
         print("Here's the Tic Tac Toe game, enjoy!");
         gameBoard.setUpGameBoard();
         setUpPlayers();
@@ -31,7 +31,7 @@ class Game {
 
     }
 
-    void setUpPlayers() {
+    private void setUpPlayers() {
         players.add(new HumanPlayer(FieldValue.X));
         players.add(new HumanPlayer(FieldValue.O));
     }

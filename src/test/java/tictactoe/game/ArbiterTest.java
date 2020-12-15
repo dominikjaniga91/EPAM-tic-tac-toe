@@ -1,9 +1,9 @@
-package tictactoe;
+package tictactoe.game;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import static tictactoe.FieldValue.*;
+import static tictactoe.game.FieldValue.*;
 
 public class ArbiterTest {
 

@@ -1,6 +1,6 @@
-package tictactoe;
+package tictactoe.game;
 
-public class Console {
+class Console {
 
     static void print(Object message) {
         System.out.println(message);

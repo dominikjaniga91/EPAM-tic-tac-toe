@@ -1,14 +1,14 @@
-package tictactoe;
+package tictactoe.game;
 
 class Arbiter {
 
     private final GameBoard gameBoard;
 
-    public Arbiter(GameBoard gameBoard) {
+    Arbiter(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
     }
 
-    public boolean judge(Field field) {
+    boolean judge(Field field) {
         var board = gameBoard.getGameBoard();
         return checkRow(field, board) ||
                 checkColumn(field, board) ||

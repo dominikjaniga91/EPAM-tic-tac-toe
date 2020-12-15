@@ -1,12 +1,12 @@
-package tictactoe;
+package tictactoe.game;
 
-import static tictactoe.messages.ExceptionMessage.*;
+import static tictactoe.game.messages.ExceptionMessage.*;
 
-public class HumanPlayer {
+class HumanPlayer {
 
     private final FieldValue fieldValue;
 
-    public HumanPlayer(FieldValue fieldValue) {
+    HumanPlayer(FieldValue fieldValue) {
         this.fieldValue = fieldValue;
     }
 

@@ -1,19 +1,19 @@
-package tictactoe;
+package tictactoe.game;
 
 
-import tictactoe.messages.ExceptionMessage;
+import tictactoe.game.messages.ExceptionMessage;
 
 class GameBoard {
 
     private final Field[][] gameBoard;
     private final int size;
 
-    public GameBoard(int size) {
+    GameBoard(int size) {
         this.size = size;
         gameBoard = new Field[size][size];
     }
 
-    public Field[][] getGameBoard() {
+    Field[][] getGameBoard() {
         return gameBoard.clone();
     }
 

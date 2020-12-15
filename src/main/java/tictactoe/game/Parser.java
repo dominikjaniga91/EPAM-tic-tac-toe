@@ -1,7 +1,7 @@
-package tictactoe;
+package tictactoe.game;
 
-import static tictactoe.messages.ExceptionMessage.*;
-public class Parser {
+import static tictactoe.game.messages.ExceptionMessage.*;
+class Parser {
 
     static int parseNumber(char input) throws InvalidInputException {
         var position = String.valueOf(input);

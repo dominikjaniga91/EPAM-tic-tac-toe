@@ -1,8 +1,9 @@
-package tictactoe;
+package tictactoe.game;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import static tictactoe.game.FieldValue.*;
 
 public class HumanPlayerTest {
 
@@ -10,13 +11,13 @@ public class HumanPlayerTest {
 
     @BeforeMethod
     public void setUp() {
-        humanPlayer = new HumanPlayer(FieldValue.X);
+        humanPlayer = new HumanPlayer(X);
     }
 
     @Test
     public void shouldReturnField_afterPlayerProvideValidInput() throws InvalidInputException {
         Field actual = humanPlayer.makeAMove("01");
-        Field expected = new Field(0, 1, FieldValue.X);
+        Field expected = new Field(0, 1, X);
         Assert.assertEquals(actual, expected);
     }
 

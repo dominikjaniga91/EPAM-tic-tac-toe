@@ -1,14 +1,14 @@
-package tictactoe;
+package tictactoe.game;
 
 import java.util.Objects;
 
-public class Field {
+class Field {
 
     private final int row;
     private final int column;
     private FieldValue fieldValue;
 
-    public Field(int row, int column, FieldValue fieldValue) {
+    Field(int row, int column, FieldValue fieldValue) {
         this.row = row;
         this.column = column;
         this.fieldValue = fieldValue;
@@ -18,15 +18,15 @@ public class Field {
         return fieldValue == FieldValue.EMPTY;
     }
 
-    public void setFieldValue(Field field) {
+    void setFieldValue(Field field) {
         this.fieldValue = field.fieldValue;
     }
 
-    public int getRow() {
+    int getRow() {
         return row;
     }
 
-    public int getColumn() {
+    int getColumn() {
         return column;
     }
 
