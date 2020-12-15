@@ -96,4 +96,31 @@ public class ArbiterTest {
         Assert.assertFalse(actual);
 
     }
+
+    @Test
+    void shouldReturnTrue_afterMarkThreeXInSecondDiagonal() throws OutOfRangeException {
+
+        Field last = new Field(2, 0, FieldValue.X);
+        gameBoard.setValue(new Field(0, 2, FieldValue.X));
+        gameBoard.setValue(new Field(1, 1, FieldValue.X));
+        gameBoard.setValue(last);
+
+        boolean actual = arbiter.checkSecondDiagonal(last, gameBoard.getGameBoard());
+        Assert.assertTrue(actual);
+
+    }
+
+
+    @Test
+    void shouldReturnFalse_afterMarkTwoXInSecondDiagonal() throws OutOfRangeException {
+
+        Field last = new Field(2, 0, FieldValue.X);
+        gameBoard.setValue(new Field(0, 2, FieldValue.X));
+        gameBoard.setValue(new Field(1, 1, FieldValue.O));
+        gameBoard.setValue(last);
+
+        boolean actual = arbiter.checkSecondDiagonal(last, gameBoard.getGameBoard());
+        Assert.assertFalse(actual);
+
+    }
 }
