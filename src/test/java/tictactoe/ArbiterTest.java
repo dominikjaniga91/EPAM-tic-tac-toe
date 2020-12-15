@@ -25,7 +25,7 @@ public class ArbiterTest {
         gameBoard.setValue(new Field(0, 1, X));
         gameBoard.setValue(last);
 
-        boolean actual = arbiter.checkRow(last, gameBoard.getGameBoard());
+        boolean actual = arbiter.judge(last);
         Assert.assertTrue(actual);
 
     }
@@ -38,7 +38,7 @@ public class ArbiterTest {
         gameBoard.setValue(new Field(0, 1, O));
         gameBoard.setValue(last);
 
-        boolean actual = arbiter.checkRow(last, gameBoard.getGameBoard());
+        boolean actual = arbiter.judge(last);
         Assert.assertFalse(actual);
 
     }
@@ -52,7 +52,7 @@ public class ArbiterTest {
         gameBoard.setValue(new Field(2, 0, X));
         gameBoard.setValue(last);
 
-        boolean actual = arbiter.checkColumn(last, gameBoard.getGameBoard());
+        boolean actual = arbiter.judge(last);
         Assert.assertTrue(actual);
 
     }
@@ -65,7 +65,7 @@ public class ArbiterTest {
         gameBoard.setValue(new Field(2, 0, X));
         gameBoard.setValue(last);
 
-        boolean actual = arbiter.checkColumn(last, gameBoard.getGameBoard());
+        boolean actual = arbiter.judge(last);
         Assert.assertFalse(actual);
 
     }
@@ -79,7 +79,7 @@ public class ArbiterTest {
         gameBoard.setValue(new Field(2, 2, X));
         gameBoard.setValue(last);
 
-        boolean actual = arbiter.checkFirstDiagonal(last, gameBoard.getGameBoard());
+        boolean actual = arbiter.judge(last);
         Assert.assertTrue(actual);
 
     }
@@ -93,7 +93,7 @@ public class ArbiterTest {
         gameBoard.setValue(new Field(2, 2, O));
         gameBoard.setValue(last);
 
-        boolean actual = arbiter.checkFirstDiagonal(last, gameBoard.getGameBoard());
+        boolean actual = arbiter.judge(last);
         Assert.assertFalse(actual);
 
     }
@@ -106,7 +106,7 @@ public class ArbiterTest {
         gameBoard.setValue(new Field(1, 1, X));
         gameBoard.setValue(last);
 
-        boolean actual = arbiter.checkSecondDiagonal(last, gameBoard.getGameBoard());
+        boolean actual = arbiter.judge(last);
         Assert.assertTrue(actual);
 
     }
@@ -118,32 +118,6 @@ public class ArbiterTest {
         Field last = new Field(2, 0, X);
         gameBoard.setValue(new Field(0, 2, X));
         gameBoard.setValue(new Field(1, 1, O));
-        gameBoard.setValue(last);
-
-        boolean actual = arbiter.checkSecondDiagonal(last, gameBoard.getGameBoard());
-        Assert.assertFalse(actual);
-
-    }
-
-    @Test
-    void shouldReturnTrue_afterIfUserWonTheGame() throws OutOfRangeException {
-
-        Field last = new Field(0, 0, X);
-        gameBoard.setValue(new Field(0, 1, X));
-        gameBoard.setValue(new Field(0, 2, X));
-        gameBoard.setValue(last);
-
-        boolean actual = arbiter.judge(last);
-        Assert.assertTrue(actual);
-
-    }
-
-    @Test
-    void shouldReturnFalse_afterIfUserDidNotWon() throws OutOfRangeException {
-
-        Field last = new Field(0, 0, X);
-        gameBoard.setValue(new Field(0, 1, O));
-        gameBoard.setValue(new Field(0, 2, X));
         gameBoard.setValue(last);
 
         boolean actual = arbiter.judge(last);
