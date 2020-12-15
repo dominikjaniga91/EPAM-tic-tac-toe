@@ -29,4 +29,18 @@ class Arbiter {
         }
         return true;
     }
+
+
+    protected boolean checkFirstDiagonal(Field userField, Field[][] fields) {
+
+        if (fields[0][0].isEmpty())
+            return false;
+
+        for (int i = 0; i < fields.length ; i++) {
+            if(!userField.equals(fields[i][i])) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
