@@ -10,22 +10,7 @@ public class HumanPlayerTest {
 
     @BeforeMethod
     public void setUp() {
-        humanPlayer = new HumanPlayer();
-    }
-
-
-    @Test
-    public void shouldReturnFieldValue_afterSelectGameMark() throws InvalidInputException {
-
-        FieldValue expected = FieldValue.X;
-        FieldValue actual = humanPlayer.selectTheGameMark("X");
-        Assert.assertEquals(actual, expected);
-    }
-
-    @Test(expectedExceptions = InvalidInputException.class,
-    expectedExceptionsMessageRegExp = "Invalid input - please provide 'X' or 'O' ")
-    public void shouldThrowAnException_afterProvideInvalidMark() throws InvalidInputException {
-        humanPlayer.selectTheGameMark("D");
+        humanPlayer = new HumanPlayer(FieldValue.X);
     }
 
     @Test
