@@ -43,4 +43,18 @@ class Arbiter {
         }
         return true;
     }
+
+    protected boolean checkSecondDiagonal(Field userField, Field[][] fields) {
+        int end = fields.length - 1;
+
+        if (fields[0][end].isEmpty())
+            return false;
+
+        for (int i = 0; i < end ; i++) {
+            if(!userField.equals(fields[i][end - i])) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
