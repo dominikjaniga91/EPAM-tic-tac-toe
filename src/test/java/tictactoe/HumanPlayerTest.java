@@ -16,7 +16,7 @@ public class HumanPlayerTest {
     @Test
     public void shouldReturnField_afterPlayerProvideValidInput() throws InvalidInputException {
         Field actual = humanPlayer.makeAMove("01");
-        Field expected = new Field(0, 1, FieldValue.EMPTY);
+        Field expected = new Field(0, 1, FieldValue.X);
         Assert.assertEquals(actual, expected);
     }
 
