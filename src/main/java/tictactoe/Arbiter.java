@@ -8,21 +8,22 @@ class Arbiter {
         this.gameBoard = gameBoard;
     }
 
-    protected boolean checkRow(Field userField, Field[][] fields) {
 
-        int row = userField.getRow();
-        for (Field field : fields[row]) {
-            if(!field.equals(userField)) {
+    protected boolean checkRow(Field field, Field[][] board) {
+
+        int row = field.getRow();
+        for (Field boardField : board[row]) {
+            if(!boardField.equals(field)) {
                 return false;
             }
         }
         return true;
     }
 
-    protected boolean checkColumn(Field userField, Field[][] fields) {
+    protected boolean checkColumn(Field userField, Field[][] board) {
 
         int column = userField.getColumn();
-        for (Field[] field : fields) {
+        for (Field[] field : board) {
             if(!userField.equals(field[column])) {
                 return false;
             }
@@ -31,27 +32,27 @@ class Arbiter {
     }
 
 
-    protected boolean checkFirstDiagonal(Field userField, Field[][] fields) {
+    protected boolean checkFirstDiagonal(Field userField, Field[][] board) {
 
-        if (fields[0][0].isEmpty())
+        if (board[0][0].isEmpty())
             return false;
 
-        for (int i = 0; i < fields.length ; i++) {
-            if(!userField.equals(fields[i][i])) {
+        for (int i = 0; i < board.length ; i++) {
+            if(!userField.equals(board[i][i])) {
                 return false;
             }
         }
         return true;
     }
 
-    protected boolean checkSecondDiagonal(Field userField, Field[][] fields) {
-        int end = fields.length - 1;
+    protected boolean checkSecondDiagonal(Field userField, Field[][] board) {
+        int end = board.length - 1;
 
-        if (fields[0][end].isEmpty())
+        if (board[0][end].isEmpty())
             return false;
 
         for (int i = 0; i < end ; i++) {
-            if(!userField.equals(fields[i][end - i])) {
+            if(!userField.equals(board[i][end - i])) {
                 return false;
             }
         }
