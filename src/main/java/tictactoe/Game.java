@@ -15,16 +15,15 @@ class Game {
     private boolean endsGame = false;
 
 
-    void play() throws OutOfRangeException {
+    void play() {
         print("Here's the Tic Tac Toe game, enjoy!");
         gameBoard.setUpGameBoard();
-
         setUpPlayers();
+
         do {
             for (HumanPlayer player : players) {
                 gameBoard.printGameBoard();
                 Field field = getPlayerMove(player);
-                gameBoard.setValue(field);
                 endsGame = arbiter.judge(field);
             }
         } while (!endsGame);
@@ -40,11 +39,13 @@ class Game {
 
         print("Make a move - chose position (format: 00)");
         Field field = null;
-        while (field == null) {
+        boolean isSet = false;
+        while (!isSet) {
             try {
                 String userInput = reader.readUserInput();
                 field = humanPlayer.makeAMove(userInput);
-            } catch (InvalidInputException ex) {
+                isSet = gameBoard.setValue(field);
+            } catch (InvalidInputException | OutOfRangeException ex) {
                 print(ex.getMessage());
             }
         }
