@@ -11,6 +11,10 @@ class GameBoard {
         gameBoard = new Field[size][size];
     }
 
+    public Field[][] getGameBoard() {
+        return gameBoard;
+    }
+
     void setUpGameBoard() {
 
         for (int i = 0; i < size; i++) {
