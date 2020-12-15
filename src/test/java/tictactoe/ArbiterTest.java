@@ -133,7 +133,7 @@ public class ArbiterTest {
         gameBoard.setValue(new Field(0, 2, X));
         gameBoard.setValue(last);
 
-        boolean actual = arbiter.didPlayerWon(last);
+        boolean actual = arbiter.judge(last);
         Assert.assertTrue(actual);
 
     }
@@ -146,7 +146,7 @@ public class ArbiterTest {
         gameBoard.setValue(new Field(0, 2, X));
         gameBoard.setValue(last);
 
-        boolean actual = arbiter.didPlayerWon(last);
+        boolean actual = arbiter.judge(last);
         Assert.assertFalse(actual);
 
     }

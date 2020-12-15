@@ -9,8 +9,9 @@ class Game {
     private final Parser parser = new Parser();
     private final GameBoard gameBoard = new GameBoard(3);
     private final Reader reader = new Reader(scanner);
-    private final Player player = new Player(parser);
+    private final HumanPlayer humanPlayer = new HumanPlayer(parser);
     private final Computer computer = new Computer();
+    private final Arbiter arbiter = new Arbiter(gameBoard);
     private int counter = 0;
 
     void play() throws OutOfRangeException {
@@ -37,7 +38,7 @@ class Game {
         while (field == null) {
             try {
                 String userInput = reader.readUserInput();
-                field = player.makeAMove(userInput);
+                field = humanPlayer.makeAMove(userInput);
             } catch (InvalidInputException ex) {
                 print(ex.getMessage());
             }
@@ -51,7 +52,7 @@ class Game {
         while (playerValue == null) {
             try {
                 String mark = reader.readUserInput();
-                playerValue = player.selectTheGameMark(mark);
+                playerValue = humanPlayer.selectTheGameMark(mark);
             } catch (InvalidInputException ex) {
                 print(ex.getMessage());
             }

@@ -12,7 +12,7 @@ class GameBoard {
     }
 
     public Field[][] getGameBoard() {
-        return gameBoard;
+        return gameBoard.clone();
     }
 
     void setUpGameBoard() {

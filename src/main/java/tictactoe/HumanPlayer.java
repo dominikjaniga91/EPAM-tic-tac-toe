@@ -2,12 +2,12 @@ package tictactoe;
 
 import static tictactoe.ExceptionMessage.*;
 
-public class Player {
+public class HumanPlayer {
 
     private final Parser parser;
     private FieldValue fieldValue;
 
-    public Player(Parser parser) {
+    public HumanPlayer(Parser parser) {
         this.parser = parser;
     }
 
