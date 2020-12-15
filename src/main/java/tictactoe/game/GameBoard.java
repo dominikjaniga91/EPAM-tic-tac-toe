@@ -2,6 +2,7 @@ package tictactoe.game;
 
 
 import tictactoe.game.messages.ExceptionMessage;
+import tictactoe.game.messages.Messages;
 
 class GameBoard {
 
@@ -27,7 +28,7 @@ class GameBoard {
     }
 
     void printGameBoard() {
-       Console.print("Actual game board: ");
+       Console.print(Messages.GAME_BOARD);
         for (Field[] fields : gameBoard) {
             for (Field field : fields) {
                 System.out.printf("[%s]", field);

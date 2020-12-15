@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import static tictactoe.game.Console.print;
 import static tictactoe.game.Console.printError;
+import static tictactoe.game.messages.Messages.*;
 
 public class Game {
 
@@ -17,7 +18,7 @@ public class Game {
 
 
     public void play() {
-        print("Here's the Tic Tac Toe game, enjoy!");
+        print(GREETING);
         gameBoard.setUpGameBoard();
         setUpPlayers();
 
@@ -38,7 +39,7 @@ public class Game {
 
     private Field getPlayerMove(HumanPlayer humanPlayer) {
 
-        print("Make a move - chose position (format: 00)");
+        print(USER_PROMPT);
         Field field = null;
         boolean isSet = false;
         while (!isSet) {
