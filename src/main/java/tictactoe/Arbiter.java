@@ -9,7 +9,7 @@ class Arbiter {
     }
 
 
-    protected boolean checkRow(Field field, Field[][] board) {
+    boolean checkRow(Field field, Field[][] board) {
 
         int row = field.getRow();
         for (Field boardField : board[row]) {
@@ -20,7 +20,7 @@ class Arbiter {
         return true;
     }
 
-    protected boolean checkColumn(Field userField, Field[][] board) {
+    boolean checkColumn(Field userField, Field[][] board) {
 
         int column = userField.getColumn();
         for (Field[] field : board) {
@@ -32,7 +32,7 @@ class Arbiter {
     }
 
 
-    protected boolean checkFirstDiagonal(Field userField, Field[][] board) {
+    boolean checkFirstDiagonal(Field userField, Field[][] board) {
 
         if (board[0][0].isEmpty())
             return false;
@@ -45,7 +45,7 @@ class Arbiter {
         return true;
     }
 
-    protected boolean checkSecondDiagonal(Field userField, Field[][] board) {
+    boolean checkSecondDiagonal(Field userField, Field[][] board) {
         int end = board.length - 1;
 
         if (board[0][end].isEmpty())
