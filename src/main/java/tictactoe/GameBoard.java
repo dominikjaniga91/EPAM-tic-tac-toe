@@ -25,7 +25,7 @@ class GameBoard {
     }
 
     void printGameBoard() {
-
+       Console.print("Actual game board: ");
         for (Field[] fields : gameBoard) {
             for (Field field : fields) {
                 System.out.printf("[%s]", field);
