@@ -1,8 +1,8 @@
 package tictactoe.game;
 
-
 import tictactoe.game.messages.ExceptionMessage;
 import tictactoe.game.messages.Messages;
+import static tictactoe.game.Console.print;
 
 class GameBoard {
 
@@ -29,12 +29,14 @@ class GameBoard {
     }
 
     void printGameBoard() {
-       Console.print(Messages.GAME_BOARD);
-        for (Field[] fields : gameBoard) {
-            for (Field field : fields) {
+       print(Messages.GAME_BOARD);
+        print("   0  1  2");
+        for (int i = 0; i < gameBoard.length; i++) {
+            System.out.print(i + " ");
+            for (Field field : gameBoard[i]) {
                 System.out.printf("[%s]", field);
             }
-            System.out.println();
+            print("");
         }
     }
 
