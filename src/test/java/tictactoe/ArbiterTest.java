@@ -3,6 +3,7 @@ package tictactoe;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import static tictactoe.FieldValue.*;
 
 public class ArbiterTest {
 
@@ -19,9 +20,9 @@ public class ArbiterTest {
     @Test
     void shouldReturnTrue_afterMarkThreeXInaRow() throws OutOfRangeException {
 
-        Field last = new Field(0, 2, FieldValue.X);
-        gameBoard.setValue(new Field(0, 0, FieldValue.X));
-        gameBoard.setValue(new Field(0, 1, FieldValue.X));
+        Field last = new Field(0, 2, X);
+        gameBoard.setValue(new Field(0, 0, X));
+        gameBoard.setValue(new Field(0, 1, X));
         gameBoard.setValue(last);
 
         boolean actual = arbiter.checkRow(last, gameBoard.getGameBoard());
@@ -32,9 +33,9 @@ public class ArbiterTest {
     @Test
     void shouldReturnFalse_afterMarkTwoXInaRow() throws OutOfRangeException {
 
-        Field last = new Field(0, 2, FieldValue.X);
-        gameBoard.setValue(new Field(0, 0, FieldValue.X));
-        gameBoard.setValue(new Field(0, 1, FieldValue.O));
+        Field last = new Field(0, 2, X);
+        gameBoard.setValue(new Field(0, 0, X));
+        gameBoard.setValue(new Field(0, 1, O));
         gameBoard.setValue(last);
 
         boolean actual = arbiter.checkRow(last, gameBoard.getGameBoard());
@@ -46,9 +47,9 @@ public class ArbiterTest {
     @Test
     void shouldReturnTrue_afterMarkThreeXInAColumn() throws OutOfRangeException {
 
-        Field last = new Field(0, 0, FieldValue.X);
-        gameBoard.setValue(new Field(1, 0, FieldValue.X));
-        gameBoard.setValue(new Field(2, 0, FieldValue.X));
+        Field last = new Field(0, 0, X);
+        gameBoard.setValue(new Field(1, 0, X));
+        gameBoard.setValue(new Field(2, 0, X));
         gameBoard.setValue(last);
 
         boolean actual = arbiter.checkColumn(last, gameBoard.getGameBoard());
@@ -59,9 +60,9 @@ public class ArbiterTest {
     @Test
     void shouldReturnFalse_afterMarkTwoXInAColumn() throws OutOfRangeException {
 
-        Field last = new Field(0, 0, FieldValue.X);
-        gameBoard.setValue(new Field(1, 0, FieldValue.O));
-        gameBoard.setValue(new Field(2, 0, FieldValue.X));
+        Field last = new Field(0, 0, X);
+        gameBoard.setValue(new Field(1, 0, O));
+        gameBoard.setValue(new Field(2, 0, X));
         gameBoard.setValue(last);
 
         boolean actual = arbiter.checkColumn(last, gameBoard.getGameBoard());
@@ -73,9 +74,9 @@ public class ArbiterTest {
     @Test
     void shouldReturnTrue_afterMarkThreeXInFirstDiagonal() throws OutOfRangeException {
 
-        Field last = new Field(0, 0, FieldValue.X);
-        gameBoard.setValue(new Field(1, 1, FieldValue.X));
-        gameBoard.setValue(new Field(2, 2, FieldValue.X));
+        Field last = new Field(0, 0, X);
+        gameBoard.setValue(new Field(1, 1, X));
+        gameBoard.setValue(new Field(2, 2, X));
         gameBoard.setValue(last);
 
         boolean actual = arbiter.checkFirstDiagonal(last, gameBoard.getGameBoard());
@@ -87,9 +88,9 @@ public class ArbiterTest {
     @Test
     void shouldReturnFalse_afterMarkTwoXInFirstDiagonal() throws OutOfRangeException {
 
-        Field last = new Field(0, 0, FieldValue.X);
-        gameBoard.setValue(new Field(1, 1, FieldValue.X));
-        gameBoard.setValue(new Field(2, 2, FieldValue.O));
+        Field last = new Field(0, 0, X);
+        gameBoard.setValue(new Field(1, 1, X));
+        gameBoard.setValue(new Field(2, 2, O));
         gameBoard.setValue(last);
 
         boolean actual = arbiter.checkFirstDiagonal(last, gameBoard.getGameBoard());
@@ -100,9 +101,9 @@ public class ArbiterTest {
     @Test
     void shouldReturnTrue_afterMarkThreeXInSecondDiagonal() throws OutOfRangeException {
 
-        Field last = new Field(2, 0, FieldValue.X);
-        gameBoard.setValue(new Field(0, 2, FieldValue.X));
-        gameBoard.setValue(new Field(1, 1, FieldValue.X));
+        Field last = new Field(2, 0, X);
+        gameBoard.setValue(new Field(0, 2, X));
+        gameBoard.setValue(new Field(1, 1, X));
         gameBoard.setValue(last);
 
         boolean actual = arbiter.checkSecondDiagonal(last, gameBoard.getGameBoard());
@@ -114,12 +115,38 @@ public class ArbiterTest {
     @Test
     void shouldReturnFalse_afterMarkTwoXInSecondDiagonal() throws OutOfRangeException {
 
-        Field last = new Field(2, 0, FieldValue.X);
-        gameBoard.setValue(new Field(0, 2, FieldValue.X));
-        gameBoard.setValue(new Field(1, 1, FieldValue.O));
+        Field last = new Field(2, 0, X);
+        gameBoard.setValue(new Field(0, 2, X));
+        gameBoard.setValue(new Field(1, 1, O));
         gameBoard.setValue(last);
 
         boolean actual = arbiter.checkSecondDiagonal(last, gameBoard.getGameBoard());
+        Assert.assertFalse(actual);
+
+    }
+
+    @Test
+    void shouldReturnTrue_afterIfUserWonTheGame() throws OutOfRangeException {
+
+        Field last = new Field(0, 0, X);
+        gameBoard.setValue(new Field(0, 1, X));
+        gameBoard.setValue(new Field(0, 2, X));
+        gameBoard.setValue(last);
+
+        boolean actual = arbiter.didPlayerWon(last);
+        Assert.assertTrue(actual);
+
+    }
+
+    @Test
+    void shouldReturnFalse_afterIfUserDidNotWon() throws OutOfRangeException {
+
+        Field last = new Field(0, 0, X);
+        gameBoard.setValue(new Field(0, 1, O));
+        gameBoard.setValue(new Field(0, 2, X));
+        gameBoard.setValue(last);
+
+        boolean actual = arbiter.didPlayerWon(last);
         Assert.assertFalse(actual);
 
     }
