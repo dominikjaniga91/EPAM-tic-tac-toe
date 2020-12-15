@@ -35,8 +35,7 @@ public class Field {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Field field = (Field) o;
-        return firstPosition == field.firstPosition &&
-                secondPosition == field.secondPosition;
+        return fieldValue == field.fieldValue;
     }
 
     @Override
